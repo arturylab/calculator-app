@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+    
+    <div class="calculator-container">
+        <div class="display-container">
+            <input type="text" id="display" readonly placeholder="0" value="{{ display if display else '' }}">
+        </div>
+        
+        {% if error %}
+        <div class="error-message">{{ error }}</div>
+        {% endif %}
+        
+        <div class="calculator-buttons">
+            <table>
+                <tr>
+                    <td><a href="{{ url_for('clear') }}"><button>C</button></a></td>
+                    <td><a href="{{ url_for('clear_entry') }}"><button>CE</button></a></td>
+                    <td><a href="{{ url_for('backspace') }}"><button>⌫</button></a></td>
+                    <td><a href="{{ url_for('input_value', value='/') }}"><button>/</button></a></td>
+                </tr>
+                <tr>
+                    <td><a href="{{ url_for('input_value', value='7') }}"><button>7</button></a></td>
+                    <td><a href="{{ url_for('input_value', value='8') }}"><button>8</button></a></td>
+                    <td><a href="{{ url_for('input_value', value='9') }}"><button>9</button></a></td>
+                    <td><a href="{{ url_for('input_value', value='*') }}"><button>*</button></a></td>
+                </tr>
+                <tr>
+                    <td><a href="{{ url_for('input_value', value='4') }}"><button>4</button></a></td>
+                    <td><a href="{{ url_for('input_value', value='5') }}"><button>5</button></a></td>
+                    <td><a href="{{ url_for('input_value', value='6') }}"><button>6</button></a></td>
+                    <td><a href="{{ url_for('input_value', value='-') }}"><button>-</button></a></td>
+                </tr>
+                <tr>
+                    <td><a href="{{ url_for('input_value', value='1') }}"><button>1</button></a></td>
+                    <td><a href="{{ url_for('input_value', value='2') }}"><button>2</button></a></td>
+                    <td><a href="{{ url_for('input_value', value='3') }}"><button>3</button></a></td>
+                    <td><a href="{{ url_for('input_value', value='+') }}"><button>+</button></a></td>
+                </tr>
+                <tr>
+                    <td><a href="{{ url_for('input_value', value='0') }}"><button>0</button></a></td>
+                    <td><a href="{{ url_for('input_value', value='.') }}"><button>.</button></a></td>
+                    <td><a href="{{ url_for('input_value', value='(') }}"><button>(</button></a></td>
+                    <td><a href="{{ url_for('input_value', value=')') }}"><button>)</button></a></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><a href="{{ url_for('calculate') }}" style="width: 100%; display: block;"><button style="width: 100%;">=</button></a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

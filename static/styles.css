@@ -1,0 +1,232 @@
+/* Simple Calculator Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* Prevent any unwanted animations or flicker */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    /* Prevent page flicker during navigation */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 300;
+}
+
+.calculator-container {
+    background-color: #2c3e50;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+}
+
+.display-container {
+    margin-bottom: 20px;
+}
+
+#display {
+    width: 100%;
+    height: 70px;
+    font-size: 2em;
+    text-align: right;
+    padding: 0 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #34495e;
+    color: white;
+    font-family: 'Courier New', monospace;
+    outline: none;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#display::placeholder {
+    color: #7f8c8d;
+}
+
+.calculator-buttons {
+    width: 100%;
+}
+
+.calculator-buttons table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 8px;
+    table-layout: fixed; /* Ensures all cells have equal width */
+}
+
+.calculator-buttons td {
+    padding: 0;
+    width: 25%; /* Each button takes exactly 25% of width */
+    height: 60px; /* Fixed height for all buttons */
+}
+
+/* Special handling for the equals button spanning 4 columns */
+.calculator-buttons tr:last-child td {
+    width: 100%;
+    height: 60px;
+}
+
+.calculator-buttons a {
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+.calculator-buttons button {
+    width: 100%;
+    height: 100%; /* Button fills the entire cell */
+    font-size: 1.4em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: none; /* Remove all transitions to eliminate flicker */
+    outline: none;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Number buttons */
+.calculator-buttons button {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+}
+
+.calculator-buttons button:hover {
+    background-color: #d5dbdb;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.calculator-buttons button:active {
+    background-color: #bdc3c7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Operator buttons */
+.calculator-buttons td:nth-child(4) button,
+.calculator-buttons tr:nth-child(5) td:nth-child(3) button {
+    background-color: #e67e22;
+    color: white;
+}
+
+.calculator-buttons td:nth-child(4) button:hover,
+.calculator-buttons tr:nth-child(5) td:nth-child(3) button:hover {
+    background-color: #d35400;
+    transform: scale(1.02);
+}
+
+/* Equals button */
+.calculator-buttons tr:last-child button {
+    background-color: #27ae60;
+    color: white;
+    height: 60px;
+    font-size: 1.6em;
+}
+
+.calculator-buttons tr:last-child button:hover {
+    background-color: #229954;
+    transform: scale(1.02);
+}
+
+/* Clear buttons (C, CE) */
+.calculator-buttons tr:first-child td:nth-child(1) button,
+.calculator-buttons tr:first-child td:nth-child(2) button {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.calculator-buttons tr:first-child td:nth-child(1) button:hover,
+.calculator-buttons tr:first-child td:nth-child(2) button:hover {
+    background-color: #c0392b;
+    transform: scale(1.02);
+}
+
+/* Backspace button */
+.calculator-buttons tr:first-child td:nth-child(3) button {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.calculator-buttons tr:first-child td:nth-child(3) button:hover {
+    background-color: #7f8c8d;
+    transform: scale(1.02);
+}
+
+/* Error message */
+.error-message {
+    color: #e74c3c;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    background-color: rgba(231, 76, 60, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 4px solid #e74c3c;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .calculator-container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    
+    #display {
+        height: 60px;
+        font-size: 1.5em;
+    }
+    
+    .calculator-buttons button {
+        height: 50px;
+        font-size: 1.2em;
+    }
+    
+    .calculator-buttons tr:last-child button {
+        font-size: 1.4em;
+    }
+}
+
+/* Smooth animations - DISABLED to prevent flicker */
+/* .calculator-container {
+    animation: fadeIn 0.5s ease-in-out;
+} */
+
+/* @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} */
