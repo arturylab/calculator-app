@@ -2,16 +2,22 @@
 
 A simple web calculator built with Flask, Jinja2 templates, and HTML **without JavaScript**. All functionality is handled server-side using Flask routes and sessions. Features a modern, responsive design with CSS styling.
 
+<div align="center">
+  <img src="images/screenshot.png" alt="Simple Calculator Interface" width="320" height="480" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <p><em>Modern calculator interface with responsive design</em></p>
+</div>
+
 ## Features
 
-- Basic arithmetic operations: addition, subtraction, multiplication, division
-- Support for parentheses and decimal numbers
-- Clear (C) and Clear Entry (CE) functionality  
-- Backspace functionality to delete last character
-- Error handling for invalid expressions and division by zero
-- **Modern, responsive design** with CSS styling
-- **Centered layout** with attractive visual design
-- **No JavaScript required** - pure server-side implementation
+- ✅ **Basic arithmetic operations**: addition, subtraction, multiplication, division
+- ✅ **Support for parentheses** and decimal numbers
+- ✅ **Clear (C) and Clear Entry (CE)** functionality  
+- ✅ **Backspace functionality** to delete last character
+- ✅ **Error handling** for invalid expressions and division by zero
+- 🎨 **Modern, responsive design** with CSS styling
+- 📱 **Centered layout** with attractive visual design
+- 🚀 **No JavaScript required** - pure server-side implementation
+- 🔧 **Color-coded buttons** for intuitive user experience
 
 ## Setup
 
@@ -40,6 +46,8 @@ python app.py
 ```
 
 3. Open your web browser and go to `http://127.0.0.1:5001`
+
+> 📸 **Note**: To display the calculator screenshot in this README, save the calculator interface image as `images/calculator-screenshot.png` in your local repository.
 
 ## Usage
 
